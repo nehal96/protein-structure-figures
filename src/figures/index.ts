@@ -1,0 +1,12 @@
+export { default as Figure, Plate, Wrap } from "./Figure";
+export { TwoWaves } from "./TwoWaves";
+export { WhySpots } from "./WhySpots";
+export { LinedUp } from "./LinedUp";
+export { Camera } from "./Camera";
+export { SaltPair } from "./SaltPair";
+export { FourBumps } from "./FourBumps";
+export { PattersonRods } from "./PattersonRods";
+export { ReadingTheFilm } from "./ReadingTheFilm";
+export { TwoHeavyAtoms } from "./TwoHeavyAtoms";
+export { default as SheetStack } from "./SheetStack";
+export { PerutzModel } from "./PerutzModel";
