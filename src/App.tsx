@@ -22,7 +22,7 @@ type Entry = {
   section: string;
   /** In the essay this floats beside the prose at this width on desktop. */
   side?: "20rem" | "16rem";
-  render: () => ReactNode;
+  figure: ReactNode;
 };
 
 const FIGURES: Entry[] = [
@@ -30,7 +30,7 @@ const FIGURES: Entry[] = [
     id: "two-waves",
     file: "TwoWaves.tsx",
     section: "X-Rays",
-    render: () => (
+    figure: (
       <Figure
         title="How waves interact"
         subtitle="Waves in step add up to a taller wave; waves half a wave apart cancel out."
@@ -43,7 +43,7 @@ const FIGURES: Entry[] = [
     id: "why-spots",
     file: "WhySpots.tsx",
     section: "X-Rays",
-    render: () => (
+    figure: (
       <Figure
         title="Why a crystal makes spots"
         subtitle="When x-rays hit an atom, its electrons emit x-rays of their own. Where those waves meet on the film, they add up or cancel, depending on how far each one has traveled."
@@ -57,7 +57,7 @@ const FIGURES: Entry[] = [
     id: "lined-up",
     file: "LinedUp.tsx",
     section: "The Big Idea",
-    render: () => (
+    figure: (
       <Figure title="The film can’t tell you how to line up the waves">
         <LinedUp />
       </Figure>
@@ -67,10 +67,10 @@ const FIGURES: Entry[] = [
     id: "camera",
     file: "Camera.tsx",
     section: "The Phase Problem",
-    render: () => (
+    figure: (
       <Figure
         title="Perutz’s x-ray crystallography setup"
-        subtitle="A nickel filter lets through x-rays of just one wavelength. The crystal, sealed in a glass tube, is rocked a few degrees to catch more spots."
+        subtitle="X-rays from the tube pass through the crystal and land on flat film. A nickel filter on the way lets through just one wavelength, and the crystal, sealed in a glass tube, is rocked a few degrees to catch more spots."
         caption="Not to scale. Based on Perutz and Rogers (1946) and Boyes-Watson, Davidson and Perutz (1947). Photograph: Bernal, Fankuchen and Perutz, Nature, 1938."
       >
         <Camera />
@@ -82,10 +82,10 @@ const FIGURES: Entry[] = [
     file: "SaltPair.tsx",
     section: "The Phase Problem",
     side: "20rem",
-    render: () => (
+    figure: (
       <Figure
         title="Salt tells you which way to flip each wave"
-        subtitle="Salt changes only the liquid’s wave, which Perutz could work out. Where it is in step with the protein’s wave, the spot gets darker; where it is opposed, fainter."
+        subtitle="Salt changes only the liquid’s wave, which Perutz could work out. When it is in step with the protein’s wave, the spot gets darker; when it is opposed, fainter."
         caption="The liquid’s wave is drawn at half the height of the protein’s. Based on Boyes-Watson and Perutz (1943)."
       >
         <SaltPair />
@@ -97,10 +97,10 @@ const FIGURES: Entry[] = [
     file: "FourBumps.tsx",
     section: "The Phase Problem",
     side: "20rem",
-    render: () => (
+    figure: (
       <Figure
         title="The first look inside hemoglobin"
-        subtitle="Adding the seven waves gave the amount of matter at each depth through one layer. Changing the liquid changed only the edges; the four bumps stayed put."
+        subtitle="Adding the seven waves gave the amount of matter at each depth through one layer. The two liquids differ only at the edges."
         caption="Computed from the seven spots in Boyes-Watson, Davidson and Perutz (1947)."
       >
         <FourBumps />
@@ -111,7 +111,7 @@ const FIGURES: Entry[] = [
     id: "patterson-rods",
     file: "PattersonRods.tsx",
     section: "The Phase Problem",
-    render: () => (
+    figure: (
       <Plate
         title="The rods in Perutz’s map"
         subtitle="Seen straight down Perutz’s Patterson map, each ringed peak is the end of a rod. Drawn in 3D, the rods all run the same way, so Perutz read them as protein chains lying side by side in layers."
@@ -126,10 +126,10 @@ const FIGURES: Entry[] = [
     file: "ReadingTheFilm.tsx",
     section: "Heavy Atoms",
     side: "16rem",
-    render: () => (
+    figure: (
       <Figure
         title="What mercury does to the spots"
-        subtitle="The spots stay where they are, because the unit cell is the same. But the heavy atom’s wave makes some darker and others fainter."
+        subtitle="The spots stay where they are, because the unit cell is the same. But the heavy atom’s wave makes some spots darker and others fainter."
       >
         <ReadingTheFilm group="mercury" />
       </Figure>
@@ -140,7 +140,7 @@ const FIGURES: Entry[] = [
     file: "TwoHeavyAtoms.tsx",
     section: "Heavy Atoms",
     side: "20rem",
-    render: () => (
+    figure: (
       <Figure
         title="Why one heavy atom isn’t enough"
         subtitle="If the protein’s wave is a little ahead of the mercury’s, or the same amount behind, the spot changes the same way. A second heavy atom, in another place, tells the two apart."
@@ -154,7 +154,7 @@ const FIGURES: Entry[] = [
     id: "sheet-stack",
     file: "SheetStack.tsx",
     section: "Heavy Atoms",
-    render: () => (
+    figure: (
       <Figure
         title="Kendrew’s 6 Å contour maps of myoglobin"
         subtitle="Each slice is a contour map of one plane through the crystal. The rings crowd together where there are most electrons, and the densest patch of all is the heme."
@@ -168,7 +168,7 @@ const FIGURES: Entry[] = [
     id: "perutz-model",
     file: "PerutzModel.tsx",
     section: "Heavy Atoms",
-    render: () => (
+    figure: (
       <Figure
         title="Perutz’s model of human hemoglobin"
         subtitle="In 1967 Perutz built this model from painted wood, the way he built his first in 1959: each slice of the map cut out and stacked. The two kinds of chain are black and white, and each heme is a red disk."
@@ -204,7 +204,7 @@ export default function App() {
             {f.side && ` · beside the prose, ${f.side} wide`}
           </p>
           <div className="flex flex-col" style={f.side ? { maxWidth: f.side } : undefined}>
-            {f.render()}
+            {f.figure}
           </div>
         </section>
       ))}
