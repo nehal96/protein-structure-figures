@@ -5,7 +5,7 @@ export default {
     extend: {
       colors: {
         paper: "#FBFAF7",
-        // Must equal XR.card in src/figures/palette.ts, or label halos show as patches.
+        // Must equal XR.card in each draft’s palette.ts, or label halos show as patches.
         card: "#F2F1ED",
         ink: {
           100: "#EEEDF2",
