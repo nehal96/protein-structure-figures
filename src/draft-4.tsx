@@ -80,7 +80,7 @@ export const FIGURES: Entry[] = [
     file: "PhaseGame.tsx",
     section: "The Big Idea",
     figure: (
-      <Sketch caption="Slide the four waves until their sum matches the molecule, drawn in grey. Each wave comes from one spot on the film. The map below is what the same spots add up to with the waves where you have put them.">
+      <Sketch caption="Slide the four waves until their sum matches the molecule, drawn in grey. This is a Fourier synthesis: each spot on the film gives one wave, and adding the waves gives the picture. The same waves at different phases add up to a different sum, and the map below shows the picture your phases give.">
         <PhaseGame />
       </Sketch>
     ),
